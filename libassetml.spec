@@ -8,8 +8,11 @@ License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ofset/%{name}-%{version}.tar.gz
 # Source0-md5:	4b10fd0fb8e00a4fb526665413479516
+Patch0:		%{name}-info.patch
 URL:		http://ofset.sf.net/assetml/
+BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
+BuildRequires:	popt-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,6 +32,8 @@ Summary:	Header files for AssetML library
 Summary(pl):	Pliki nag³ówkowe biblioteki AssetML
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	glib2-devel >= 2.0.0
+Requires:	libxml2-devel
 
 %description devel
 Header files for AssetML library.
@@ -50,9 +55,11 @@ Statyczna biblioteka AssetML.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%configure
+%configure \
+	--enable-static
 %{__make}
 
 %install
@@ -69,12 +76,17 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
+%post devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
+%postun devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir %{_infodir} >/dev/null 2>&1
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/assetml-query
 %attr(755,root,root) %{_libdir}/libassetml.so.*.*.*
-%{_infodir}/*
 
 %files devel
 %defattr(644,root,root,755)
@@ -82,6 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.la
 %{_includedir}/libassetml*
 %{_pkgconfigdir}/libassetml.pc
+%{_infodir}/*.info*
 
 %files static
 %defattr(644,root,root,755)
