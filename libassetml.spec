@@ -13,6 +13,7 @@ URL:		http://ofset.sf.net/assetml/
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	popt-devel
+BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
