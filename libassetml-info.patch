@@ -1,0 +1,19 @@
+--- libassetml-1.2.1/docs/C/libassetml.texi.orig	Tue Oct  7 13:22:37 2003
++++ libassetml-1.2.1/docs/C/libassetml.texi	Wed Mar 10 15:29:30 2004
+@@ -7,12 +7,10 @@
+ @setchapternewpage odd
+ 
+ @ifinfo
+-@dircategory System/Library
+-@format
+-START-INFO-DIR-ENTRY
+-* libassetml: (libassetml.info).    Library assetml to share and reuse content like image and audio file
+-END-INFO-DIR-ENTRY
+-@end format
++@dircategory Libraries:
++@direntry
++* libassetml: (libassetml).		Sharing and reusing content like image and audio
++@end direntry
+ This is the documentation of libassetml
+ It contains both information on the xml file format for assetml
+ and library information suitable for developpers.
