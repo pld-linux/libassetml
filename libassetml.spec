@@ -1,4 +1,5 @@
 Summary:	Library assetml to share and reuse content like image and audio file
+Summary(pl):	Biblioteka assetml to wspó³dzielenia zasobów typu obrazki i d¼wiêki
 Name:		libassetml
 Version:	1.2.1
 Release:	1
@@ -7,8 +8,8 @@ License:	GPL
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ofset/%{name}-%{version}.tar.gz
 # Source0-md5:	4b10fd0fb8e00a4fb526665413479516
-URL:		http://ofset.sf.net/assetml
-Requires:	libxml2
+URL:		http://ofset.sf.net/assetml/
+BuildRequires:	libxml2-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -17,21 +18,35 @@ and reuse content like image and audio file. Application using this
 library can query files on their system that provides an assetml xml
 file description.
 
-%package  devel
-Summary:	Devel Library assetml to share image and audio file between project
+%description -l pl
+Ta biblioteka oparta o format plików XML s³u¿y do wspó³dzielenia i
+ponownego wykorzystywania zasobów typu obrazki i pliki d¼wiêkowe.
+Aplikacja u¿ywaj±ca tej biblioteki mo¿e zapytaæ o obecne w systemie
+pliki z do³±czonym opisem w formacie assetml xml.
+
+%package devel
+Summary:	Header files for AssetML library
+Summary(pl):	Pliki nag³ówkowe biblioteki AssetML
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-AssetML Devel Library
+Header files for AssetML library.
 
-%package  static
-Summary:	AssetML Static Library
+%description devel -l pl
+Pliki nag³ówkowe biblioteki AssetML.
+
+%package static
+Summary:	Static AssetML library
+Summary(pl):	Statyczna biblioteka AssetML
 Group:		Development/Libraries
-Requires:	%{name}-%{devel} = %{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-AssetML Static Library.
+Static AssetML library.
+
+%description static -l pl
+Statyczna biblioteka AssetML.
 
 %prep
 %setup -q
@@ -58,15 +73,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/assetml-query
-%attr(755,root,root) %{_prefix}/lib/libassetml.so.*
+%attr(755,root,root) %{_libdir}/libassetml.so.*.*.*
 %{_infodir}/*
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/lib*.la
 %{_includedir}/libassetml*
 %{_pkgconfigdir}/libassetml.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*a
+%{_libdir}/lib*.a
