@@ -2,7 +2,7 @@ Summary:	Library assetml to share and reuse content like image and audio file
 Summary(pl):	Biblioteka assetml to wspó³dzielenia zasobów typu obrazki i d¼wiêki
 Name:		libassetml
 Version:	1.2.1
-Release:	1
+Release:	2
 Epoch:		0
 License:	GPL
 Group:		Libraries
@@ -14,6 +14,7 @@ BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	popt-devel
 BuildRequires:	texinfo
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,6 +60,7 @@ Statyczna biblioteka AssetML.
 %patch0 -p1
 
 %build
+cp /usr/share/automake/config.sub .
 %configure \
 	--enable-static
 %{__make}
