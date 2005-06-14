@@ -1,3 +1,4 @@
+%bcond_without	static	# don't build static library
 Summary:	Library assetml to share and reuse content like image and audio file
 Summary(pl):	Biblioteka assetml to wspó³dzielenia zasobów typu obrazki i d¼wiêki
 Name:		libassetml
@@ -13,6 +14,7 @@ URL:		http://ofset.sf.net/assetml/
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
 BuildRequires:	popt-devel
+BuildRequires:	tetex
 BuildRequires:	texinfo
 BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -62,7 +64,8 @@ Statyczna biblioteka AssetML.
 %build
 cp /usr/share/automake/config.sub .
 %configure \
-	--enable-static
+	--enable-static \
+	%{!?with_static:--disable-static}
 %{__make}
 
 %install
@@ -99,6 +102,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libassetml.pc
 %{_infodir}/*.info*
 
+%if %{with static}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+%endif
