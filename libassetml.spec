@@ -1,4 +1,4 @@
-%bcond_without	static	# don't build static library
+%bcond_without	static_libs	# don't build static library
 Summary:	Library assetml to share and reuse content like image and audio file
 Summary(pl):	Biblioteka assetml to wspó³dzielenia zasobów typu obrazki i d¼wiêki
 Name:		libassetml
@@ -65,7 +65,7 @@ Statyczna biblioteka AssetML.
 cp /usr/share/automake/config.sub .
 %configure \
 	--enable-static \
-	%{!?with_static:--disable-static}
+	%{!?with_static_libs:--disable-static}
 %{__make}
 
 %install
@@ -102,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pkgconfigdir}/libassetml.pc
 %{_infodir}/*.info*
 
-%if %{with static}
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
