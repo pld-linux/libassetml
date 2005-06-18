@@ -13,12 +13,13 @@ Source0:	http://dl.sourceforge.net/ofset/%{name}-%{version}.tar.gz
 # Source0-md5:	4b10fd0fb8e00a4fb526665413479516
 Patch0:		%{name}-info.patch
 URL:		http://ofset.sf.net/assetml/
+BuildRequires:	automake
 BuildRequires:	glib2-devel >= 2.0.0
 BuildRequires:	libxml2-devel
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	tetex
 BuildRequires:	texinfo
-BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
