@@ -2,7 +2,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Library assetml to share and reuse content like image and audio file
-Summary(pl):	Biblioteka assetml to wspÛ≥dzielenia zasobÛw typu obrazki i dºwiÍki
+Summary(pl.UTF-8):   Biblioteka assetml to wsp√≥≈Çdzielenia zasob√≥w typu obrazki i d≈∫wiƒôki
 Name:		libassetml
 Version:	1.2.1
 Release:	2
@@ -28,15 +28,15 @@ and reuse content like image and audio file. Application using this
 library can query files on their system that provides an assetml xml
 file description.
 
-%description -l pl
-Ta biblioteka oparta o format plikÛw XML s≥uøy do wspÛ≥dzielenia i
-ponownego wykorzystywania zasobÛw typu obrazki i pliki dºwiÍkowe.
-Aplikacja uøywaj±ca tej biblioteki moøe zapytaÊ o obecne w systemie
-pliki z do≥±czonym opisem w formacie assetml xml.
+%description -l pl.UTF-8
+Ta biblioteka oparta o format plik√≥w XML s≈Çu≈ºy do wsp√≥≈Çdzielenia i
+ponownego wykorzystywania zasob√≥w typu obrazki i pliki d≈∫wiƒôkowe.
+Aplikacja u≈ºywajƒÖca tej biblioteki mo≈ºe zapytaƒá o obecne w systemie
+pliki z do≈ÇƒÖczonym opisem w formacie assetml xml.
 
 %package devel
 Summary:	Header files for AssetML library
-Summary(pl):	Pliki nag≥Ûwkowe biblioteki AssetML
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe biblioteki AssetML
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0.0
@@ -45,19 +45,19 @@ Requires:	libxml2-devel
 %description devel
 Header files for AssetML library.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe biblioteki AssetML.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe biblioteki AssetML.
 
 %package static
 Summary:	Static AssetML library
-Summary(pl):	Statyczna biblioteka AssetML
+Summary(pl.UTF-8):   Statyczna biblioteka AssetML
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static AssetML library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka AssetML.
 
 %prep
