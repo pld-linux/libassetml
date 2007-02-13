@@ -2,7 +2,7 @@
 %bcond_without	static_libs	# don't build static library
 #
 Summary:	Library assetml to share and reuse content like image and audio file
-Summary(pl.UTF-8):   Biblioteka assetml to współdzielenia zasobów typu obrazki i dźwięki
+Summary(pl.UTF-8):	Biblioteka assetml to współdzielenia zasobów typu obrazki i dźwięki
 Name:		libassetml
 Version:	1.2.1
 Release:	2
@@ -36,7 +36,7 @@ pliki z dołączonym opisem w formacie assetml xml.
 
 %package devel
 Summary:	Header files for AssetML library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki AssetML
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki AssetML
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	glib2-devel >= 2.0.0
@@ -50,7 +50,7 @@ Pliki nagłówkowe biblioteki AssetML.
 
 %package static
 Summary:	Static AssetML library
-Summary(pl.UTF-8):   Statyczna biblioteka AssetML
+Summary(pl.UTF-8):	Statyczna biblioteka AssetML
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
