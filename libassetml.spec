@@ -20,6 +20,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel
 BuildRequires:	tetex
+BuildRequires:	texi2html
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
